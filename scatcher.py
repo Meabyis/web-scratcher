@@ -3,27 +3,18 @@ from selenium.webdriver.common.by import By
 driver = webdriver.Firefox()
 driver.get("https://duckduckgo.com/")
 
-
+amount_of_search = int()
 
 def main():
-    user_input = input("What would you like to find pictures about?   ")
+    user_input = input("What would you like to find about?   ")
 
-    safe_input = input("Safe search options: \n 0 = off \n 1 = moderate \n 2 = strict ")
 
-    if safe_input == 0:
-        button = driver.find_element(By.CLASS_NAME, "js-dropdown-button")
-        button.click()
-        button = driver.find_element(By.CLASS_NAME, "js-dropdown-items")
-        button.click()
-    else:
-        None
-    
-    if safe_input == 2:
-        None    #MISSING    
-    else:
-        None
 
-    driver.implicitly_wait(1)
+    user_wants = input("Top links = 0 or images = 1    ")
+
+
+
+    amount_of_search = input("How many?   ")
 
     text_box = driver.find_element(By.ID, "searchbox_input")
     text_box.send_keys(user_input) 
@@ -36,6 +27,7 @@ def main():
     button1 = driver.find_element(By.CLASS_NAME, "js-zci-link--images")
     button1.click()
 
-main()
+if __name__=="__main__":
+    main()
 
 
